@@ -36,6 +36,9 @@ This constitutes the initial lane finding implementation.
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by creating a new function 'draw_lines_avg'. The line segments were comprised of 'x1','y1','x2','y2' which are the endpoints of the line segment. By taking (('y2'-'y1')/('x2'-'x1')), I calculate the m value and take the array of line segments output by the Hough Transform and to separate them into left and right lane line segments based on the slope of the line segment. Afterwards I average the position of each of the lines and extrapolate them to be at the top and bottom of the lane. To avoid small line segments biasing the extrapolated line, I do not add to the final array to be averaged any lines that are less than a length of 2. These lines are averaged to calculate a resulting single left and right lane line and transformed back to the image, where it is then overlaid.
 
+This results in the following image:
+![Hough Average Lane Lines Image][image3]
+
 ### 2. Identify potential shortcomings with your current pipeline
 
 
